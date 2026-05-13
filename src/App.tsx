@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
 
 import { GetPokemon } from './services/PokeApi';
-import { PokemonCard } from '../src/components/PokeComponent'
+import { PokemonCard } from './components/PokeComponent';
+import PokemonDetail from './components/PokeDetalle';
 import type { Pokemon } from './interface/Pokemon';
 
 export default function App() {
@@ -12,10 +14,15 @@ export default function App() {
   }, []);
 
   return (
-    <main className="grid lg:grid-cols-8 gap-4 p-4">
-      {pokemons.map((p) => (
-        <PokemonCard key={p.id} pokemon={p} />
-      ))}
-    </main>
+    <Routes>
+      <Route path="/" element={
+        <main className="grid lg:grid-cols-6 gap-4 p-4">
+          {pokemons.map((p) => (
+            <PokemonCard key={p.id} pokemon={p} />
+          ))}
+        </main>
+      } />
+      <Route path="/pokemon/:id" element={<PokemonDetail />} />
+    </Routes>
   );
 }

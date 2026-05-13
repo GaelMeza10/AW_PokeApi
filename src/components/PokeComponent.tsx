@@ -1,12 +1,15 @@
 import type { Pokemon } from "../interface/Pokemon";
-
+import { useNavigate } from "react-router-dom";
 interface Props {
   pokemon: Pokemon;
 }
 
 export const PokemonCard = ({ pokemon }: Props) => {
-  return (
-    <div className="card rounded-lg border shadow-sm p-1.5 bg-white hover:shadow-md transition-all duration-300  mx-auto">
+  const navigate = useNavigate();
+    if (!pokemon) return <p className="flex justify-center items-center">Cargando datos del Pokemon...</p>;
+
+  return (  
+    <div className="card rounded-lg  shadow-lg p-1.5 bg-gray-150 hover:shadow-lg transition-all duration-300  mx-auto">
       <img 
         className="w-20 h-20 mx-auto object-contain"
         src={pokemon.sprites.other["official-artwork"].front_default} 
@@ -28,6 +31,10 @@ export const PokemonCard = ({ pokemon }: Props) => {
             </span>
           ))}
         </div>
+        <button className="text-[9px] bg-blue-400 text-white py-0.5 px-2 rounded-md hover:bg-blue-600 transition-colors duration-150"
+                onClick={() => navigate(`/pokemon/${pokemon.id}`)}
+                > Detalles
+        </button>
       </div>
     </div>
   );
