@@ -3,6 +3,7 @@ import type { Pokemon } from '../interface/Pokemon';
 const POKE_API_URL = "https://pokeapi.co/api/v2/pokemon";
 
 export const GetPokemon = async (): Promise<Pokemon[]> => {
+
     const respuesta_api = await fetch(`${POKE_API_URL}?limit=100`);
     const data = await respuesta_api.json();
     // Obtener los detalles de cada Pokemon
@@ -10,5 +11,6 @@ export const GetPokemon = async (): Promise<Pokemon[]> => {
         const res = await fetch(poke.url);
         return await res.json();
     });
+    //esperar a los 100 peticiones
     return Promise.all(detalles_pokemon);
 }

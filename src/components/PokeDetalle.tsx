@@ -28,8 +28,8 @@ export default function PokemonDetail() {
 
     return (
         
-        <div className="flex flex-col items-center p-8 bg-white rounded-lg shadow-md max-w-md mx-auto">
-            <span className="text-gray-400 font-mono text-xl">{"Id: " + id}</span>
+        <div className="flex flex-col items-center p-8 bg-white rounded-lg shadow-md max-w-md mx-auto mt-5 mb-5">
+            <span className="text-gray-400 font-mono text-xl">{"#" + id}</span>
             <h1 className="text-3xl font-bold capitalize mt-2">{pokemon.name}</h1>
             
             <img 
@@ -39,34 +39,34 @@ export default function PokemonDetail() {
 
             <div className="mt-6 w-full">
 
-                <h3 className="font-semibold border-b pb-2 mt-4">Tipos:</h3>
+                <h3 className="font-semibold pb-2 mt-4">Tipos:</h3>
                 <div className="flex flex-wrap gap-2 mt-2">
                     {pokemon.types.map(t => (
-                        <span key={t.slot} className={`text-black text-sm ${t.type.name} `}>
+                        <span key={t.slot} className={`text-black text-md ${t.type.name} `}>
                             {t.type.name}
                         </span>
                     ))}
                 </div>
-                <h3 className="font-semibold border-b pb-2 mt-4">Peso:</h3>
-                <p className="text-lg font-bold">{pokemon.weight / 10} kg</p>
-                <h3 className="font-semibold border-b pb-2 mt-4">Altura:</h3>
-                <p className="text-lg font-bold">{pokemon.height / 10} m</p>
-                <h3 className="font-semibold border-b pb-2 mt-4">Habilidades:</h3>
-                <ul className="mt-2 text-sm text-gray-600">
+                <h3 className="font-semibold pb-2 mt-4">Peso:</h3>
+                <p className="text-md ">{pokemon.weight / 10} kg</p>
+                <h3 className="font-semibold  pb-2 mt-4">Altura:</h3>
+                <p className="text-md">{pokemon.height / 10} m</p>
+                <h3 className="font-semibold pb-2 mt-4">Habilidades:</h3>
+                <ul className="mt-2 text-md ">
                     {pokemon.abilities.map(a => (
                         <li key={a.slot} className="flex justify-between">
                             <span className="capitalize">{a.ability.name}</span>
-                            {a.is_hidden && <span className="text-xs text-gray-500">(Oculta)</span>}
+                            {a.is_hidden && <span className="text-md">(Oculta)</span>}
                         </li>
                     ))}
                 </ul>
 
-                 <h3 className="font-semibold border-b pb-2">Estadisticas Base:</h3>
-                <ul className="mt-2 text-sm text-gray-600">
+                 <h3 className="font-semibold  pb-2 mt-3">Estadisticas Base:</h3>
+                <ul className="mt-2 text-md ">
                     {pokemon.stats.map(s => (
                         <li key={s.stat.name} className="flex justify-between">
                             <span className="capitalize">{s.stat.name}:</span>
-                            <span className="font-bold">{s.base_stat}</span>
+                            <span >{s.base_stat}</span>
                             
                         </li>
                     ))}
