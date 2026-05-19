@@ -16,7 +16,7 @@ export default function App() {
   return (
     <Routes>
       <Route path="/" element={
-        <main className="grid lg:grid-cols-6 gap-4 p-4">
+        <main className="grid lg:grid-cols-4 gap-4 p-2 max-w-4xl mx-auto">
           {pokemons.map((p) => (
             <PokemonCard key={p.id} pokemon={p} />
           ))}
