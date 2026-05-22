@@ -10,6 +10,7 @@ export const PokemonCard = ({ pokemon }: Props) => {
 
   const navigate = useNavigate();
   
+  
   return (  
     
     <div className="card rounded-lg  shadow-lg p-1.5 bg-gray-150 hover:shadow-lg transition-all duration-300  mx-auto">

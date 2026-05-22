@@ -3,7 +3,6 @@ import { GetPokemon } from "../services/PokeApi";
 import { PokemonCard } from "./PokeCard";
 import type { Pokemon } from "../interface/Pokemon";
 import { getFavoritos } from "../storage/Favoritos";
-//agregar un mensaje de carga mientras se obtienen los favoritos
 
 export default function Favoritos() {
     const [favoritos, setFavoritos] = useState<Pokemon[]>([]);

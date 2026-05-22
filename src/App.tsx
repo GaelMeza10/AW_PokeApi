@@ -8,6 +8,7 @@ import type { Pokemon } from './interface/Pokemon';
 import { BarraBusqueda } from './components/BarraBusqueda';
 import { TipoFiltro } from './components/TipoFiltro';
 import Favoritos from './components/Favoritos';
+import CompararP from './components/CompararP';
 
 export default function App() {
 
@@ -25,12 +26,12 @@ export default function App() {
 
   return (
     <>
-      <nav className='flex justify-center gap-8 p-4 mb-2'>
+      <nav className='flex justify-center gap-8 p-4 mb-2 bg-gray-200 rounded-lg shadow-md'>
         <Link to="/"
-          className='text-lg font-bold '>
+          className='text-lg font-bold  text-black py-1 px-3 rounded-md hover:bg-blue-600 transition-colors duration-150'>
           Inicio</Link>
         <Link to="/favoritos"
-          className='text-lg font-bold'>
+          className='text-lg font-bold  text-black py-1 px-3 rounded-md hover:bg-yellow-600 transition-colors duration-150'>
           Favoritos</Link>
       </nav>
       <Routes>
@@ -45,17 +46,21 @@ export default function App() {
                 <PokemonCard key={p.id} pokemon={p} />
               ))}
             </main>
+            {}
             {pokemones_filtrados.length === 0 && (
               <p className="text-center mt-10 font-medium">
                 No se encontraron pokemones con ese nombre.
               </p>
             )}
+           
           </>
 
         } />
         <Route path="/favoritos" element={<Favoritos />
         } />
-        <Route path="/pokemon/:id" element={<PokemonDetail />} />
+        <Route path="/pokemon/:id" element={<PokemonDetail botonComparar={true} />} />
+
+        <Route path="/comparar/:id" element={<CompararP />} />
       </Routes>
     </>
 
